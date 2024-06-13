@@ -36,8 +36,8 @@ tab_long$Abundance <- round(tab_long$Abundance,2)  #
 count_number <- function(df)
 {
   vector<-c()
-  vector[1] <-  count(df$Substrate == "HMO")[[2,2]]
-  vector[2] <-  count(df$Substrate == "Lactose")[[2,2]]
+  vector[1] <-  count(df$Substrate == "HMO")[1]
+  vector[2] <-  count(df$Substrate == "Lactose")[1]
   return(vector)
 }
 
@@ -75,7 +75,7 @@ sheet <- list()
 
 variable <- "Inoculum"
 df<-subset(tab_long, Sample_time_point %in% variable)
-counts <- count(df$Substrate == variable)[[1,2]]
+counts <- count(df$Sample_time_point == variable)[1]
 
 p_inoculum  <-  ggplot(df, aes(x= Substrate, y= Abundance))+ 
   scale_fill_manual(values = col_inoculum) +
@@ -97,7 +97,7 @@ variable <- "Batch1"
 df<-subset(tab_long, Sample_time_point %in% variable)
 stat <- stat_single_compare(df)
 stat
-counts <- count_number(df)
+counts <- count_number(df) #Chech line 39,40. If this does not work you can change it to [[2,2]] or [[1,2]] to test.
 
 B_1 <-  ggplot_boxplot_abundance(df)+
   labs(x="",  title=variable)+
@@ -218,13 +218,14 @@ ggarrange(p_inoculum,
 count_number <- function(df)
 {
   vector<-c()
-  vector[1] <-  count(df$Sample_time_point == "Batch1")[[2,2]]
-  vector[2] <-  count(df$Sample_time_point == "Batch2")[[2,2]]
-  vector[3] <-  count(df$Sample_time_point == "Batch3")[[2,2]]
-  vector[4] <-  count(df$Sample_time_point == "Chemostat1")[[2,2]]
-  vector[5] <-  count(df$Sample_time_point == "Chemostat2")[[2,2]]
-  vector[6] <-  count(df$Sample_time_point == "Chemostat3")[[2,2]]
-  vector[7] <-  count(df$Sample_time_point == "Chemostat4")[[2,2]]
+  vector[1] <-  count(df$Sample_time_point == "Inoculum")[[2,2]]
+  vector[2] <-  count(df$Sample_time_point == "Batch1")[[2,2]]
+  vector[3] <-  count(df$Sample_time_point == "Batch2")[[2,2]]
+  vector[4] <-  count(df$Sample_time_point == "Batch3")[[2,2]]
+  vector[5] <-  count(df$Sample_time_point == "Chemostat1")[[2,2]]
+  vector[6] <-  count(df$Sample_time_point == "Chemostat2")[[2,2]]
+  vector[7] <-  count(df$Sample_time_point == "Chemostat3")[[2,2]]
+  vector[8] <-  count(df$Sample_time_point == "Chemostat4")[[2,2]]
   return(vector)
 }
 
@@ -245,22 +246,23 @@ stat_single_compare <- function(df){
 ggplot_boxplot_abundance <- function(df)
 {
   ggplot(df, aes(x= Sample_time_point, y= Abundance))+ 
-    scale_fill_manual(values = cols_point[2:8]) +
+    scale_fill_manual(values = cols_point) +
     stat_boxplot(geom ='errorbar', linetype=1, width=0.2) + 
     geom_boxplot(outlier.shape = NA, aes(fill=Sample_time_point)) +
     geom_jitter(show.legend=FALSE, width=0.25, shape=21, fill="black") +
-    scale_x_discrete(breaks=group_point[2:8],
-                     labels=c(glue("Batch1\nN={counts[1]}"),
-                              glue("Batch2\nN={counts[2]}"),
-                              glue("Batch3\nN={counts[3]}"),
-                              glue("Chemostat1\nN={counts[4]}"),
-                              glue("Chemostat2\nN={counts[5]}"),
-                              glue("Chemostat3\nN={counts[6]}"),
-                              glue("Chemostat4\nN={counts[7]}")
+    scale_x_discrete(breaks=group_point,
+                     labels=c(glue("Inoculum\nN={counts[1]}"),
+                              glue("Batch1\nN={counts[2]}"),
+                              glue("Batch2\nN={counts[3]}"),
+                              glue("Batch3\nN={counts[4]}"),
+                              glue("Chemostat1\nN={counts[5]}"),
+                              glue("Chemostat2\nN={counts[6]}"),
+                              glue("Chemostat3\nN={counts[7]}"),
+                              glue("Chemostat4\nN={counts[8]}")
                               )) +
     scale_y_continuous(limits = c(200, 900))+
     theme_classic() +
-    mytheme_alpha_noy
+    mytheme_alpha
 }
 
 sheet <- list()
@@ -274,6 +276,7 @@ stat <- stat_single_compare(df)
 stat
 counts <- count_number(df)
 counts
+df$Sample_time_point <- factor(df$Sample_time_point ,levels = group_point)
 H_1 <-  ggplot_boxplot_abundance(df)+
   labs(x="",  title=variable)+
   theme(plot.title = element_text(hjust = 0.5))
@@ -289,6 +292,7 @@ stat <- stat_single_compare(df)
 stat
 counts <- count_number(df)
 counts
+df$Sample_time_point <- factor(df$Sample_time_point ,levels = group_point)
 L_1 <-  ggplot_boxplot_abundance(df)+
   labs(x="",  title=variable)+
   theme(plot.title = element_text(hjust = 0.5))
@@ -302,15 +306,14 @@ sheet[[variable]] <- stat
 
 ################merge all figures together################
 
-ggarrange(p_inoculum,
-          H_1,
+ggarrange(H_1,
           L_1,
           nrow = 1,
-          ncol = 3,
+          ncol = 2,
           common.legend = T,
-          legend = "right",
-          widths = c(1.5,5.25,5.25)
+          legend = "right"
           ) # For export svg 1200x400 size
 
 ###################################################################################
 write_xlsx(sheet, "Bacteriome/stat_result/Chemostat/alpha_diversity_substrate.xlsx")
+

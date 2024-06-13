@@ -114,7 +114,7 @@ BRK72R237	124	neg	Other	Neg_control	Other	Other	Other	Other	Other	Other	Other	Ot
 BRK96R237	148	neg	Other	Neg_control	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other
 BRK149R237	256	neg	Other	Neg_control	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other
 BRK147R237	254	Negative_FV	Other	True_sample	Pig_inoculum	Other	Other	Other	Other	Other	Other	Other	Other	Other	FVT	Other	Other	Other	Other	Other
-BRK01R009	1	PV1 Ino-VB	Ino-VB PV1	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	no	0.1	75.1	B1	Inoculum
+BRK01R009	1	PV1 Ino-VB	Ino-VB PV1	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	75.1	B1	Inoculum
 BRK02R009	2	PV1	VB0 PV1	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	0	B1	Medium
 BRK03R009	3	PV1 VB1	VB1 PV1	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	55.8	B1	Batch1
 BRK04R009	4	PV1 VB2	VB2 PV1	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	80.7	B1	Batch2
@@ -123,7 +123,7 @@ BRK06R009	6	PV1 VB4	VB4 PV1	True_sample	Chemostat	Other	Other	Other	Other	Other	
 BRK07R009	7	PV1 VB5	VB5 PV1	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	86.2	B1	Chemostat2
 BRK08R009	8	PV1 VB7	VB7 PV1	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	88.6	B1	Chemostat3
 BRK09R009	9	PV1 VB8	VB8 PV1	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	80.2	B1	Chemostat4
-BRK10R009	10	PV2 Ino-VB	Ino-VB PV2	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	no	0.1	62.5	B2	Inoculum
+BRK10R009	10	PV2 Ino-VB	Ino-VB PV2	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	62.5	B2	Inoculum
 BRK11R009	11	PV2 VB0	VB0 PV2	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	0	B2	Medium
 BRK12R009	12	PV2 VB1	VB1 PV2	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	45.4	B2	Batch1
 BRK13R009	13	PV2 VB2	VB2 PV2	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	62	B2	Batch2
@@ -132,7 +132,7 @@ BRK15R009	15	PV2 VB4	VB4 PV2	True_sample	Chemostat	Other	Other	Other	Other	Other
 BRK16R009	16	PV2 VB5	VB5 PV2	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	72.1	B2	Chemostat2
 BRK17R009	17	PV2 VB7	VB7 PV2	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	65.1	B2	Chemostat3
 BRK18R009	18	PV2 VB8	VB8 PV2	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	77.2	B2	Chemostat4
-BRK19R009	19	PV3 Ino-VB	Ino-VB PV3	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	no	0.1	40.1	B3	Inoculum
+BRK19R009	19	PV3 Ino-VB	Ino-VB PV3	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Lactose	0.1	40.1	B3	Inoculum
 BRK20R009	20	PV3 VB0	VB0 PV3	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Lactose	0.1	0	B3	Medium
 BRK21R009	21	PV3 VB1	VB1 PV3	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Lactose	0.1	45.4	B3	Batch1
 BRK22R009	22	PV3 VB2	VB2 PV3	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Lactose	0.1	58.5	B3	Batch2
@@ -140,8 +140,8 @@ BRK23R009	23	PV3 VB3	VB3 PV3	True_sample	Chemostat	Other	Other	Other	Other	Other
 BRK24R009	24	PV3 VB4	VB4 PV3	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Lactose	0.1	64.8	B3	Chemostat1
 BRK25R009	25	PV3 VB5	VB5 PV3	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Lactose	0.1	74.3	B3	Chemostat2
 BRK26R009	26	PV3 VB7	VB7 PV3	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Lactose	0.1	78.3	B3	Chemostat3
-BRK27R009	27	PV3 VB8	VB8 PV4	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Lactose	0.1	68.6	B3	Chemostat4
-BRK28R009	28	PV4 Ino-VB	Ino-VB PV4	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	no	0.1	39.7	B4	Inoculum
+BRK27R009	27	PV3 VB8	VB8 PV3	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Lactose	0.1	68.6	B3	Chemostat4
+BRK28R009	28	PV4 Ino-VB	Ino-VB PV4	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	39.7	B4	Inoculum
 BRK29R009	29	PV4 VB0	VB0 PV4	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	0	B4	Medium
 BRK30R009	30	PV4 VB1	VB1 PV4	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	36.88	B4	Batch1
 BRK31R009	31	PV4 VB2	VB2 PV4	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	50.5	B4	Batch2
@@ -150,7 +150,7 @@ BRK33R009	33	PV4 VB4	VB4 PV4	True_sample	Chemostat	Other	Other	Other	Other	Other
 BRK34R009	34	PV4 VB5	VB5 PV4	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	83.1	B4	Chemostat2
 BRK35R009	35	PV4 VB7	VB7 PV4	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	88.9	B4	Chemostat3
 BRK36R009	36	PV4 VB8	VB8 PV4	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	85.6	B4	Chemostat4
-BRK37R009	37	PV5 Ino-VB	Ino-VB PV5	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	no	0.1	44.1	B5	Inoculum
+BRK37R009	37	PV5 Ino-VB	Ino-VB PV5	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	44.1	B5	Inoculum
 BRK38R009	38	PV5 VB0	VB0 PV5	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	0	B5	Medium
 BRK39R009	39	PV5 VB1	VB1 PV5	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	37.8	B5	Batch1
 BRK40R009	40	PV5 VB2	VB2 PV5	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	54.8	B5	Batch2
@@ -159,7 +159,7 @@ BRK42R009	42	PV5 VB4	VB4 PV5	True_sample	Chemostat	Other	Other	Other	Other	Other
 BRK43R009	43	PV5 VB5	VB5 PV5	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	89.9	B5	Chemostat2
 BRK44R009	44	PV5 VB7	VB7 PV5	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	81.3	B5	Chemostat3
 BRK45R009	45	PV5 VB8	VB8 PV5	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	HMO	0.1	64.3	B5	Chemostat4
-BRK46R009	46	PV6 Ino-VB	Ino-VB PV6	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	no	0.1	50.5	B6	Inoculum
+BRK46R009	46	PV6 Ino-VB	Ino-VB PV6	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Lactose	0.1	50.5	B6	Inoculum
 BRK47R009	47	PV6 VB0	VB0 PV6	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Lactose	0.1	0	B6	Medium
 BRK48R009	48	PV6 VB1	VB1 PV6	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Lactose	0.1	31.1	B6	Batch1
 BRK49R009	49	PV6 VB2	VB2 PV6	True_sample	Chemostat	Other	Other	Other	Other	Other	Other	Other	Other	Other	Other	Lactose	0.1	95.4	B6	Batch2

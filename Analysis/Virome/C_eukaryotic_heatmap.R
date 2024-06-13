@@ -43,7 +43,7 @@ p_timepoint
 #############################p_substrate###########################################
 
 
-PSVamp$metadata$Substrate <- factor(PSVamp$metadata$Substrate, levels = c("Inoculum","HMO","Lactose"))
+PSVamp$metadata$Substrate <- factor(PSVamp$metadata$Substrate, levels = c("HMO","Lactose"))
 PSVamp$metadata$Sample_time_point <- factor(PSVamp$metadata$Sample_time_point, levels = group_point)
 
 p_substrate <-amp_heatmap(PSVamp,

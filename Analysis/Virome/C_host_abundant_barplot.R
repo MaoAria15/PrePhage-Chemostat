@@ -463,15 +463,17 @@ ggarrange(p_Inoculum,
 ##1.HMO##############
 Sub<- "HMO"
 ps1<- subset_samples(ps, Substrate %in% Sub)
-ps1<- subset_samples(ps1, Sample_time_point %in% group_point[2:8])
+ps1<- subset_samples(ps1, Sample_time_point %in% group_point[1:8])
 # Get the sample size 
-n1 <-  count(ps1@sam_data$Sample_time_point == "Batch1")[[2,2]]
-n2 <-  count(ps1@sam_data$Sample_time_point == "Batch2")[[2,2]]
-n3 <-  count(ps1@sam_data$Sample_time_point == "Batch3")[[2,2]]
-n4 <-  count(ps1@sam_data$Sample_time_point == "Chemostat1")[[2,2]]
-n5 <-  count(ps1@sam_data$Sample_time_point == "Chemostat2")[[2,2]]
-n6 <-  count(ps1@sam_data$Sample_time_point == "Chemostat3")[[2,2]]
-n7 <-  count(ps1@sam_data$Sample_time_point == "Chemostat4")[[2,2]]
+n1 <-  count(ps1@sam_data$Sample_time_point == "Inoculum")[[2,2]]
+n2 <-  count(ps1@sam_data$Sample_time_point == "Batch1")[[2,2]]
+n3 <-  count(ps1@sam_data$Sample_time_point == "Batch2")[[2,2]]
+n4 <-  count(ps1@sam_data$Sample_time_point == "Batch3")[[2,2]]
+n5 <-  count(ps1@sam_data$Sample_time_point == "Chemostat1")[[2,2]]
+n6 <-  count(ps1@sam_data$Sample_time_point == "Chemostat2")[[2,2]]
+n7 <-  count(ps1@sam_data$Sample_time_point == "Chemostat3")[[2,2]]
+n8 <-  count(ps1@sam_data$Sample_time_point == "Chemostat4")[[2,2]]
+
 
 
 vir.phyl <- tax_glom(ps1, level, NArm = FALSE)
@@ -507,16 +509,17 @@ p_HMO <- ggplot(df0, aes(Sample, Abundance, fill = tax)) +
   theme_classic() +
   scale_fill_jco(name = "Taxonomy") +
   scale_fill_manual(values=rep(col_vector,10),name=level)+
-  scale_x_discrete(labels=c(glue("Batch1\nN={n1}"),
-                            glue("Batch2\nN={n2}"),
-                            glue("Batch3\nN={n3}"),
-                            glue("Chemostat1\nN={n4}"),
-                            glue("Chemostat2\nN={n5}"),
-                            glue("Chemostat3\nN={n6}"),
-                            glue("Chemostat4\nN={n7}"))
+  scale_x_discrete(labels=c(glue("Inoculum\nN={n1}"),
+                            glue("Batch1\nN={n2}"),
+                            glue("Batch2\nN={n3}"),
+                            glue("Batch3\nN={n4}"),
+                            glue("Chemostat1\nN={n5}"),
+                            glue("Chemostat2\nN={n6}"),
+                            glue("Chemostat3\nN={n7}"),
+                            glue("Chemostat4\nN={n8}"))
   )+
   coord_cartesian(ylim = scale) +
-  mytheme_abundance_noy+
+  mytheme_abundance+
   labs(x= "",y="Mean Relative abundance (%)",  title=Sub)+
   theme(plot.title = element_text(hjust = 0.5))
 
@@ -524,16 +527,17 @@ p_HMO
 ##2.Lactose#############
 Sub<- "Lactose"
 ps1<- subset_samples(ps, Substrate %in% Sub)
-ps1<- subset_samples(ps1, Sample_time_point %in% group_point[2:8])
+ps1<- subset_samples(ps1, Sample_time_point %in% group_point[1:8])
 
 # Get the sample size 
-n1 <-  count(ps1@sam_data$Sample_time_point == "Batch1")[[2,2]]
-n2 <-  count(ps1@sam_data$Sample_time_point == "Batch2")[[2,2]]
-n3 <-  count(ps1@sam_data$Sample_time_point == "Batch3")[[2,2]]
-n4 <-  count(ps1@sam_data$Sample_time_point == "Chemostat1")[[2,2]]
-n5 <-  count(ps1@sam_data$Sample_time_point == "Chemostat2")[[2,2]]
-n6 <-  count(ps1@sam_data$Sample_time_point == "Chemostat3")[[2,2]]
-n7 <-  count(ps1@sam_data$Sample_time_point == "Chemostat4")[[2,2]]
+n1 <-  count(ps1@sam_data$Sample_time_point == "Inoculum")[[2,2]]
+n2 <-  count(ps1@sam_data$Sample_time_point == "Batch1")[[2,2]]
+n3 <-  count(ps1@sam_data$Sample_time_point == "Batch2")[[2,2]]
+n4 <-  count(ps1@sam_data$Sample_time_point == "Batch3")[[2,2]]
+n5 <-  count(ps1@sam_data$Sample_time_point == "Chemostat1")[[2,2]]
+n6 <-  count(ps1@sam_data$Sample_time_point == "Chemostat2")[[2,2]]
+n7 <-  count(ps1@sam_data$Sample_time_point == "Chemostat3")[[2,2]]
+n8 <-  count(ps1@sam_data$Sample_time_point == "Chemostat4")[[2,2]]
 
 
 vir.phyl <- tax_glom(ps1, level, NArm = FALSE)
@@ -545,6 +549,7 @@ ps2 <- merge_samples(ps2, "Sample_time_point")
 ps3 <- transform_sample_counts(ps2, function(x) x / sum(x))
 #Create melted dataframe
 df <- psmelt(ps3)
+
 
 #Select last non-empty taxonomic rank
 df[df==""] <- NA
@@ -569,30 +574,29 @@ p_Lactose <- ggplot(df0, aes(Sample, Abundance, fill = tax)) +
   theme_classic() +
   scale_fill_jco(name = "Taxonomy") +
   scale_fill_manual(values=rep(col_vector,10),name=level)+
-  scale_x_discrete(labels=c(glue("Batch1\nN={n1}"),
-                            glue("Batch2\nN={n2}"),
-                            glue("Batch3\nN={n3}"),
-                            glue("Chemostat1\nN={n4}"),
-                            glue("Chemostat2\nN={n5}"),
-                            glue("Chemostat3\nN={n6}"),
-                            glue("Chemostat4\nN={n7}"))
+  scale_x_discrete(labels=c(glue("Inoculum\nN={n1}"),
+                            glue("Batch1\nN={n2}"),
+                            glue("Batch2\nN={n3}"),
+                            glue("Batch3\nN={n4}"),
+                            glue("Chemostat1\nN={n5}"),
+                            glue("Chemostat2\nN={n6}"),
+                            glue("Chemostat3\nN={n7}"),
+                            glue("Chemostat4\nN={n8}"))
   )+
   coord_cartesian(ylim = scale) +
-  mytheme_abundance_noy+
+  mytheme_abundance+
   labs(x= "",y="Mean Relative abundance (%)",  title=Sub)+
   theme(plot.title = element_text(hjust = 0.5))
 
 p_Lactose
 
 ##merge#####
-ggarrange(p_Inoculum,
-          p_HMO,
+ggarrange(p_HMO,
           p_Lactose,
           nrow = 1,
-          ncol = 3,
+          ncol = 2,
           common.legend = T,
-          legend = "right",
-          widths = c(1.5,5.25,5.25)) #Size:1200*400
+          legend = "right") #Size:1200*400
 
 ############################Section3: Divided by Substrate by samples#############################
 
@@ -669,49 +673,14 @@ p_Lactose <- ggplot(df0, aes(Propagation , Abundance, fill = tax)) +
 
 p_Lactose
 
-##3.Inoculum#############
-Sub<- "Inoculum"
-ps1<- subset_samples(ps, Substrate %in% Sub)
 
-vir.phyl <- tax_glom(ps1, level, NArm = FALSE)
-
-ps2 <- transform_sample_counts(vir.phyl, function(x) x *100/ sum(x))
-
-#Create melted dataframe
-df <- psmelt(ps2)
-
-#Select last non-empty taxonomic rank
-df[df==""] <- NA
-
-df$tax <- apply(df, 1, function(x) tail(na.omit(x), 1))
-
-df0 <- df %>%
-  mutate(tax = fct_other(df$tax, keep=c(as.matrix(top20))))%>%
-  arrange(desc(tax))
-
-df0$tax <- factor(df0$tax,level=c(top20,"Other"))
-#join all qualitative palettes
-qual_col_pals = brewer.pal.info[brewer.pal.info$category == 'qual',]
-col_vector = unlist(mapply(brewer.pal, qual_col_pals$maxcolors, rownames(qual_col_pals)))
-p_Inoculum <- ggplot(df0, aes(Propagation , Abundance, fill = tax)) + 
-  geom_col(width = 0.8) +
-  theme_classic() +
-  scale_fill_jco(name = "Taxonomy") +
-  scale_fill_manual(values=rep(col_vector,10),name=level)+
-  coord_cartesian(ylim = scale) +
-  mytheme_abundance_yvertival+
-  labs(x= "",y="Mean Relative abundance (%)",  title=Sub)+
-  theme(plot.title = element_text(hjust = 0.5))
-
-p_Inoculum
 
 ##merge#####
-ggarrange(p_Inoculum,
-          p_HMO,
+ggarrange(p_HMO,
           p_Lactose,
           nrow = 1,
-          ncol = 3,
+          ncol = 2,
           common.legend = T,
           legend = "right",
-          widths = c(2.5,10,5)) #Size:1500*400
+          widths = c(10,5)) #Size:1500*400
 

@@ -80,3 +80,4 @@ p_1<-  EnhancedVolcano(tab_1_all,
                        # boxedLabels = TRUE,
                        title = 'No NEC vs NEC (Litter 12345)') 
 p_1
+
